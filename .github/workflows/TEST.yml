@@ -1,9 +1,7 @@
 name: test
 on:
-  pull_request:
-    branches: [master]
-    paths:
-      - 'src/**'
+  push:
+  workflow_dispatch:
 jobs:
   test:
     runs-on: ubuntu-latest
