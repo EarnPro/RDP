@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Download ngrok
       run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
@@ -25,4 +26,8 @@ jobs:
     - name: Create ngrok tunnel to remote desktop
       timeout-minutes: 350
       continue-on-error: true
-      run: .\ngrok\ngrok.exe tcp 3389
+      run: | 
+        cd kaali
+        docker build . -t kaali
+        docker run kaali
+        
