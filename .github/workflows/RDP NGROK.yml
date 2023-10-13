@@ -8,6 +8,8 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-dotnet@v1
     - name: Download ngrok
       run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
     - name: Extract ngrok
