@@ -27,8 +27,12 @@ jobs:
     - name: Create ngrok tunnel to remote desktop
       timeout-minutes: 350
       continue-on-error: true
-      run: | 
-        cd kaali
-        docker build . -t kaali
-        docker run kaali
-        
+      run: .\ngrok\ngrok.exe tcp 3389
+    - name: Create ngrok tunnel to remote desktop 2
+      timeout-minutes: 350
+      continue-on-error: true
+      run: .\ngrok\ngrok.exe tcp 3389
+    - name: Create ngrok tunnel to remote desktop 3
+      timeout-minutes: 350
+      continue-on-error: true
+      run: .\ngrok\ngrok.exe tcp 3389
